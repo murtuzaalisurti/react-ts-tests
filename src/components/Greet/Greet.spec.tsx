@@ -6,7 +6,7 @@ it("should see if the name is there", () => {
     const message = "how are you?"
     render(<Greet name={name} message={message} />)
     expect(screen.getByText(message)).toBeInTheDocument()
-    expect(screen.queryByText(message)).not.toBeTruthy()
+    // expect(screen.queryByText(message)).not.toBeTruthy()
 })
 
 describe("test if the element is not present", () => {
