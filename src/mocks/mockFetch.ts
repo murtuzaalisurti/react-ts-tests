@@ -1,6 +1,6 @@
 import { TResponse } from "../components/StarWars/StarWars";
 
-const response: TResponse = {
+export const response: TResponse = {
     count: 21,
     next: "https://swapi.dev/api/starships?format=json",
     previous: "https://swapi.dev/api/starships?format=json",
