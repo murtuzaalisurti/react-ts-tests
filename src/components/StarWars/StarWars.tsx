@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { API } from '../../lib/constants'
 
 /**
  * TODO :- if you want to implement fetch mocking manually (without MSW or spyOn) then follow below steps:
@@ -41,24 +42,44 @@ export interface TResponse {
 
 const StarWars = () => {
     const [ships, setShips] = useState<StarShip[]>()
-    
-    useEffect(() => {
-        // async req
+    const reRender = useRef(false)
 
+    useEffect(() => {
+
+        /**
+         * ? the useRef hook here is used to fetch the data only once because in strict mode, react 18+ mounts the component twice and the code in useEffect also runs twice
+         * TODO :- here's a demo
+         *  const hasMounted = useRef(false);
+            useEffect(() => {
+                if (hasMounted.current) { return; }
+                // do something
+                hasMounted.current = true;
+            }, []);
+         */
+
+        if (reRender.current) { return; }
+
+        // async req
         /**
          * ! current implementation is using MSW (Mock Service Worker) for testing fetch requests. Remember that, MSW will only work when tests are run, when you run the app, the actual network request will initiated and there will be no interception from MSW
          */
         const getData = async () => {
-            await fetch("https://swapi.dev/api/starships?format=json").then(res => {
+            const url = new URL(`${API.baseURL}${API.endpoint}`)
+            API.params.length !== 0 && API.params.forEach((param) => {
+                url.searchParams.set(param.key, param.value)
+            })
+            
+            await fetch(url.href).then(res => {
                 return res.json()
             }).then((data: TResponse) => {
                 setShips(prev => (data.results))
             }).catch(err => console.log(err));
         }
+
         getData()
 
-        // cleanup function
-        return () => {}
+        reRender.current = true
+
     }, [])
     return (
         <div>
