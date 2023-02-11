@@ -24,9 +24,9 @@ const Counter = ({ initialState }: CounterProps) => {
         <>
             <p>Counter</p>
             <div>
-                <button title={CHANGE.INCREMENT} onClick={() => changeCount(CHANGE.DECREMENT)}>-</button>
+                <button title={CHANGE.DECREMENT} onClick={() => changeCount(CHANGE.DECREMENT)}>-</button>
                 <p title='count'>{count}</p>
-                <button title={CHANGE.DECREMENT} onClick={() => changeCount(CHANGE.INCREMENT)}>+</button>
+                <button title={CHANGE.INCREMENT} onClick={() => changeCount(CHANGE.INCREMENT)}>+</button>
             </div>
         </>
     )
