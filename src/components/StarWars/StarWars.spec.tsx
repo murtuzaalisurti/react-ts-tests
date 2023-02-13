@@ -27,6 +27,6 @@ describe("test asynchronous requests in the component", () => {
     it("should check the number of elements being rendered from the API", async () => {
         render(<StarWars />)
         const shipList = await screen.findAllByTestId(/ship-item-/)
-        expect(shipList.length).toBe(2)
+        expect(shipList.length).toBe(10)
     })
 })
