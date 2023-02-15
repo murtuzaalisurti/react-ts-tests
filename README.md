@@ -61,8 +61,24 @@ I have created a mock server which will intercept the API requests we make and r
 
 It's present in `src/mocks/server.ts`. To handle enpoints, I have created handlers inside the `src/mocks/handlers.ts` file.
 
+```ts
+rest.get(`${API.baseURL}${API.endpoint}`, (req, res, ctx) => {
+    req.url.searchParams.set("format", "json")
+    return res(ctx.json(response))
+})
+```
+
 We can import those handlers in the mock server.
 
 After that, we need to tell jest to use the mock server before running any tests. We can do that in `setupTests.ts` file.
+
+```ts
+import { server } from './mocks/server';
+
+beforeAll(() => server.listen())
+afterEach(() => server.resetHandlers())
+
+afterAll(() => server.close())
+```
 
 That's it. We are now ready to run tests.
