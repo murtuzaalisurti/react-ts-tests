@@ -18,17 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --watchAll",
     "devTest": "npm test -- --coverage",
     "eject": "react-scripts eject"
-  },
-  "jest": {
-    "resetMocks": true,
-    "collectCoverageFrom": [
-      "/src/**/*.{js,ts,tsx,jsx}"
-    ]
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.0.0",
     "msw": "^1.0.0"
   },
   "msw": {
