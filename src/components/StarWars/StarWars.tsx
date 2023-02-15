@@ -1,15 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { API } from '../../lib/constants'
 
-/**
- * TODO :- if you want to implement fetch mocking manually (without MSW or spyOn) then follow below steps:
- * 
-    import mockFetch from '../../mocks/mockFetch'
-    and replace "fetch with mockFetch"
-
- * ? NOTE :- if you are implementing without the "spyOn" method then you don't need to import "mockFetch" and replace "fetch" with "mockFetch"
- */
-
 // type of ship object in API results
 export interface StarShip {
     name: string,
@@ -69,6 +60,11 @@ const StarWars = () => {
                 url.searchParams.set(param.key, param.value)
             })
             
+            /**
+            * TODO :- if you want to implement fetch mocking manually (without MSW or spyOn) then just use mockFetch directly - not recommended:
+            * ? NOTE :- if you are implementing without the "spyOn" method then you don't need to import "mockFetch" and replace "fetch" with "mockFetch"
+            */
+
             await fetch(url.href).then(res => {
                 return res.json()
             }).then((data: TResponse) => {
