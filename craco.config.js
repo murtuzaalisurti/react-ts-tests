@@ -6,11 +6,13 @@ module.exports = {
                 "/src/**/*.{js,ts,tsx,jsx}"
             ],
             resetMocks: true,
-            preset: 'ts-jest',
-            transform: {
-                '^.+\\.(ts|tsx)?$': 'ts-jest',
-                "^.+\\.(js|jsx)$": "babel-jest",
-            }
+            // resolver: '<rootDir>/.jest/resolver.js'
+            extensionsToTreatAsEsm: ['.ts', '.tsx']
+            // preset: 'ts-jest',
+            // transform: {
+            //     '^.+\\.(ts|tsx)?$': 'ts-jest',
+            //     "^.+\\.(js|jsx)$": "babel-jest",
+            // }
         }
     }
 }

@@ -28,6 +28,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --watchAll",
+    "jt": "cross-env NODE_OPTIONS=--experimental-vm-modules npm test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,6 +53,7 @@
     "@babel/preset-env": "^7.20.2",
     "@craco/craco": "^7.0.0",
     "babel-jest": "^29.4.3",
+    "cross-env": "^7.0.3",
     "msw": "^1.0.0",
     "ts-jest": "^29.0.5"
   },
