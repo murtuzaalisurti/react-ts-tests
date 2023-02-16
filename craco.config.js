@@ -5,7 +5,12 @@ module.exports = {
             collectCoverageFrom: [
                 "/src/**/*.{js,ts,tsx,jsx}"
             ],
-            resetMocks: true
+            resetMocks: true,
+            preset: 'ts-jest',
+            transform: {
+                '^.+\\.(ts|tsx)?$': 'ts-jest',
+                "^.+\\.(js|jsx)$": "babel-jest",
+            }
         }
     }
 }
