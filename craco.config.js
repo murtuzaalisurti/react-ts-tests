@@ -7,7 +7,7 @@ module.exports = {
             ],
             resetMocks: true,
             // resolver: '<rootDir>/.jest/resolver.js'
-            extensionsToTreatAsEsm: ['.ts', '.tsx']
+            // extensionsToTreatAsEsm: ['.ts', '.tsx']
             // preset: 'ts-jest',
             // transform: {
             //     '^.+\\.(ts|tsx)?$': 'ts-jest',
