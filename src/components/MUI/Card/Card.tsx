@@ -1,11 +1,11 @@
 import React from 'react'
 import { Box, Grid, Card, Paper, Typography, Rating, createTheme, CardHeader, Avatar, CardMedia, CardContent } from '@mui/material'
 import { AccessTimeFilled } from '@mui/icons-material'
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
+import Grid2 from '@mui/material/Unstable_Grid2'
 
 const CustomCard = ({color, imgUrl}: {color: string, imgUrl: string}) => {
     return (
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid2 xs={12} md={6} lg={4}>
             {/* https://mui.com/material-ui/react-card/ */}
             <Card variant="outlined" sx={{
                 overflow: 'hidden'
@@ -40,7 +40,7 @@ const CustomCard = ({color, imgUrl}: {color: string, imgUrl: string}) => {
                     }} value={4.5} precision={0.5} readOnly /> */}
                 </CardContent>
             </Card>
-        </Grid>
+        </Grid2>
     )
 }
 
